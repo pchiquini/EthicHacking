@@ -4,10 +4,16 @@
   <main class="hero-section">
     <div class="container">
       
+       <form action="/login" method="POST">
+        <input type="username" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Log in">
+      </form>
+
       <div class="section-content">
         <h2>Hello Hackers.</h2>
         <a href="#" class="btn-primary">Sign up</a>
-        <a href="{{ url_for('about') }}" class="btn-secondary">Learn more</a> 
+        <a href="{{ url_for('about') }}" class="btn-secondary">Info</a> 
       </div>
 
       <div class="section-device">
