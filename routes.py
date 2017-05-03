@@ -16,6 +16,10 @@ def index():
 def about():
   return render_template("about.html")
 
+@app.route("/incorrect")
+def incorrect():
+  return render_template("incorrect.html")
+
 
 @app.route('/login', methods=["GET","POST"])
 def login():
@@ -24,7 +28,7 @@ def login():
         session['username'] = request.form['username']
         return redirect(url_for('home'))
     else:
-    	flash('wrong password!')
+    	return redirect(url_for('incorrect'))
     return home()
 
 @app.route("/home")
