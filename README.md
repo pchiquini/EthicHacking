@@ -1,5 +1,5 @@
 # EthicHacking
 
 #Site 1: 
-https://ancient-mountain-73309.herokuapp.com/ 
-	| https://git.heroku.com/ancient-mountain-73309.git
+https://secure-thicket-64850.herokuapp.com/
+ | https://git.heroku.com/secure-thicket-64850.git
