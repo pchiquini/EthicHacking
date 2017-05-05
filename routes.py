@@ -17,7 +17,12 @@ def index():
 
 @app.route("/about")
 def about():
-  return render_template("about.html")
+	cookie = request.cookies.get("sessionID")
+
+	if cookie not in cookiesDict:
+		return "Error"
+
+	return render_template("about.html")
 
 @app.route("/incorrect")
 def incorrect():
