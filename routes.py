@@ -49,9 +49,9 @@ def home():
 		text = request.form['text']
 		blog_posts.append(text)
 		print(blog_posts)
-		return render_template('home.html', blog_posts=blog_posts)
+		return render_template('home.html', blog_posts=blog_posts, username = "admin")
 	else:
-		return render_template("home.html")
+		return render_template("home.html", username = "admin")
 
 if __name__ == "__main__":
   app.run('0.0.0.0', 5000)
