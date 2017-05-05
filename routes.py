@@ -23,13 +23,12 @@ def about():
 def incorrect():
   return render_template("incorrect.html")
 
-
 @app.route('/login', methods=["GET","POST"])
 def login():
     if request.form['password'] == 'admin' and request.form['username'] == 'admin':
         session['logged_in'] = True
         session['username'] = request.form['username']
-        resp = make_response(redirect('/home'))
+        resp = make_response(redirect(url_for('home', username = "admin")))
         resp.set_cookie('sessionID', "cookie")
         cookiesDict["cookie"] = "admin"
         return resp

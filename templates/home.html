@@ -7,7 +7,7 @@
       
       <div class="section-content">
         <h2>Logged In.</h2>
-        <a href="#" class="btn-primary">Create Blog</a>
+        <a href="{{ url_for('about') }}" class="btn-primary">Who Am I?</a> 
       </div>
 
       	<form action="/home" method="POST">
@@ -22,6 +22,10 @@
 			 {% endfor %}
 			 {% endautoescape %}
 		</div>
+
+        {% if user %}
+        <h3 class="User">User: {{user}} </h3>
+        {% endif %}
       
       <div class="clearfix"></div>
 
