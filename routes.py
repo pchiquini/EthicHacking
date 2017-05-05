@@ -37,6 +37,14 @@ def login():
         resp.set_cookie('sessionID', "cookie")
         cookiesDict["cookie"] = "admin"
         return resp
+
+    if request.form['password'] == 'guest' and request.form['username'] == 'guest':
+        session['logged_in'] = True
+        session['username'] = request.form['username']
+        resp = make_response(redirect(url_for('home', username = "guest")))
+        resp.set_cookie('sessionID', "cookie")
+        cookiesDict["cookie"] = "admin"
+        return resp
     else:
     	return redirect(url_for('incorrect'))
     return home()
