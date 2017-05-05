@@ -10,10 +10,18 @@
         <a href="#" class="btn-primary">Create Blog</a>
       </div>
 
-      <form action="/home" method="post">
+      	<form action="/home" method="POST">
   			<input type="text" name="text"></input>
- 			<input type="submit" value="Post"></input>
+ 			<input type="submit" value="POST"></input>
 		</form>
+
+		<div class="blog-content">
+			{% autoescape false %}
+			{% for POST in blog_posts %}
+			 <li> {{POST}} </li>
+			 {% endfor %}
+			 {% endautoescape %}
+		</div>
       
       <div class="clearfix"></div>
 

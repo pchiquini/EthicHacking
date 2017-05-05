@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'
 db.init_app(app)
+blog_posts = []
 
 app.secret_key = "development-key"
 
@@ -26,14 +27,30 @@ def login():
     if request.form['password'] == 'admin' and request.form['username'] == 'admin':
         session['logged_in'] = True
         session['username'] = request.form['username']
-        return redirect(url_for('home'))
+        return redirect('/home')
     else:
     	return redirect(url_for('incorrect'))
     return home()
 
-@app.route("/home")
+@app.route("/home", methods = ["POST", "GET"])
 def home():
-  return render_template("home.html")
+	if request.method == "POST":
+		text = request.form['text']
+		blog_posts.append(text)
+		print(blog_posts)
+		return render_template('home.html', blog_posts=blog_posts)
+	else:
+		return render_template("home.html")
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run('0.0.0.0', 5000)
+
+
+
+
+
+
+
+
+
+
